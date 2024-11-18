@@ -53,10 +53,76 @@ This project leverages advanced Machine Learning techniques and Computer Vision 
 
 ## Usage
 
-1. **Prepare the Image**:
-  Provide a path to a high-quality image of the person you want to profile. The image should clearly show the full body and face for accurate results.
-2.**Run the Script**:
-  Execute the script by passing the image path:
-  ```bash
-  python main.py --image_path path_to_image.jpeg
+1. **Prepare the Image**:Provide a path to a high-quality image of the individual you want to profile. The image should clearly show the full body and face to ensure accurate results.
+2. **Run the Script**: Execute the script by specifying the image path:
+   ```bash
+   python main.py --image_path path_to_image.jpeg
 
+3. **View the Results**: The program will process the image and output a detailed profile, including race, height, body type, clothing type, and dominant color.
+
+---
+
+## How It Works
+
+### Race Detection
+- **DeepFace** analyzes the image for facial features and predicts the dominant race along with its probabilities.
+
+### Height and Body Type Estimation
+- **MediaPipe Pose** identifies key body landmarks to estimate approximate height and categorize body type.
+
+### Clothing Detection
+- Uses **K-means clustering** to identify the dominant color of the clothing and maps it to predefined categories.
+
+### Profile Compilation
+- Combines all extracted data into a structured profile for easy interpretation.
+
+---
+
+## Limitations
+
+### Image Dependency
+- Results are highly dependent on the quality and clarity of the image provided.
+- Obstructions or poor lighting may reduce accuracy.
+
+### Bias in Models
+- Pre-trained models used for race detection may contain inherent biases.
+
+### Simplistic Clothing Detection
+- The clothing detection system relies on the dominant color, limiting its ability to handle patterns or multiple colors.
+
+---
+
+## Future Work
+
+- Integrate more advanced deep learning models for height and body type estimation.
+- Expand clothing detection to include fabric patterns and multi-color identification.
+- Add real-time profiling capabilities using video input.
+- Introduce additional features such as emotion recognition and gesture analysis.
+
+---
+
+## Contributing
+
+Contributions are welcome! Follow these steps to get started:
+
+1. **Fork the Repository**:  
+   Click the "Fork" button on the repository page.
+
+2. **Clone Your Fork**:  
+   ```bash
+   git clone https://github.com/your-username/human-profiling.git
+3. **Create a Feature Branch**:  
+   ```bash
+   git checkout -b feature-name
+4. **Commit and Push Changes**:  
+   ```bash
+   git commit -m "Add new feature"
+   git push origin feature-name
+5.**Open a Pull Request**:
+   Submit your changes for review.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
